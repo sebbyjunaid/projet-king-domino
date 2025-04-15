@@ -663,14 +663,7 @@ def statistiques_royaume(royaume):
     for terrain, score in terrains_scores.items():
         print(f"- Terrain '{terrain}' : {score} points")
 
-"""
-Extension : Debug
-Cela ajoute une commande 'debug' pendant les poses manuelles
-pour afficher  :
-- Le nombre de cases libres restantes
-- Les positions valides pour poser le domino 
-- estimation des zones accessibles
-"""
+
 from B_gestion_dominos import *
 
 def debug_infos(royaume, cases_libres, domino):
