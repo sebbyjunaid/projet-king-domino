@@ -1,9 +1,5 @@
 def creerRoyaume(taille=7):
-    """La fonction creerRoyaume prend en argument un entier positif taille
-    Cet argument est optionnel et prend la valeur 7 par défaut.
-    Si taille est pair ou négatif, on envoie un message d'erreur.
-    Sinon on crée une matrice de dimension taille x taille remplie de None,
-    sauf la case du milieu qui est remplie avec un 'CH'."""
+    
 
     if taille < 0 or taille % 2 == 0:
         print("Impossible de créer un royaume : 'taille' est pair ou négatif")
@@ -23,9 +19,7 @@ print(creerRoyaume(6))
 
 
 def init_tuple_royaumes(taille=7):
-    """La fonction init_tuple_royaumes prend en argument une taille de royaume.
-    Elle crée deux royaumes différents et renvoie un tuple les contenant tous les deux.
-    L'idée est que ce tuple contienne le royaume de chaque joueur de KingDomino."""
+    
 
     royaume1 = creerRoyaume(taille)
     royaume2 = creerRoyaume(taille)
@@ -37,9 +31,7 @@ print(tup[0])
 print(tup[1])
 
 def afficherCoordonnees(royaume):
-    """La fonction afficheCoordonnees prend en argument un royaume
-    et affiche les coordonnées de chaque point du royaume. Cette fonction ne sera jamais
-    utilisée, elle est là pour vous aider à comprendre comment sont fixées les coordonnées"""
+    
     n = len(royaume)
     for i in range(n):
         for j in range(n):
@@ -50,10 +42,7 @@ def afficherCoordonnees(royaume):
     afficherCoordonnees(royaume)
 
 def init_cases_libres(taille):
-    """La fonction init_cases_libres prend en argument la taille d'un royaume
-    Elle renvoie la liste des cases vides d'un royaume de taille nxn contenant seulement
-    un chateau, autrement dit une liste de n^2 - 1 tuples"""
-
+   
     cases = []
     centre = taille // 2
     for i in range(taille):
@@ -64,9 +53,7 @@ def init_cases_libres(taille):
 print(init_cases_libres(3))
 
 def init_tuple_libres(taille):
-    """La fonction init_tuple_libres prend en argument une taille de royaume.
-    Elle crée deux listes de cases libres indépendantes et les renvoie sous forme de tuple.
-    L'idée est que ce tuple contienne la liste des cases libres pour le royaume de chaque joueur"""
+   
 
     libres1 = init_cases_libres(taille)
     libres2 = init_cases_libres(taille)
@@ -79,8 +66,7 @@ print(len(tup[1]))
 
 
 def afficherRoyaume(royaume, joueur="A", vide="  "):
-    """Affiche un royaume avec une mise en forme élégante, incluant le nom du joueur,
-    les coordonnées de lignes/colonnes, et les valeurs des cases (ou vide)."""
+    
 
     n = len(royaume)
 
@@ -112,7 +98,7 @@ afficherRoyaume(royaume)
 
 
 def partie_droite_domino(posL, posC, dir):
-    """Renvoie les coordonnées de la case droite du domino en fonction de la case gauche et d'une direction."""
+    
 
     if dir == "left":
         return (posL, posC + 1)
@@ -130,8 +116,7 @@ def partie_droite_domino(posL, posC, dir):
     print(partie_droite_domino(3, 3, 'nimportequoi'))
 
 def espaceLibre(royaume, posL, posC, dir):
-    """Renvoie True si un domino peut être ajouté à cet emplacement avec cette direction."""
-
+    
     n = len(royaume)
 
 
@@ -173,7 +158,7 @@ print(espaceLibre(royaume,2,3,"right"))
 print(espaceLibre(royaume,2,3,"xyz"))
 
 def ajoutDomino(royaume, cases_libres, domino, posL, posC, dir):
-    """Ajoute un domino au royaume si l'espace est libre, et met à jour la liste des cases libres."""
+   
     if espaceLibre(royaume, posL, posC, dir):
         posL2, posC2 = partie_droite_domino(posL, posC, dir)
 
@@ -207,8 +192,7 @@ afficherRoyaume(royaume)
 print(len(cases_libres))
 
 def voisinages(royaume, posL, posC, libres=False):
-    """Renvoie la liste des coordonnées voisines autour d'une case (posL, posC).
-    Si libres=True, seules les cases vides sont incluses."""
+    
 
     n = len(royaume)
     directions = [(-1, 0), (1, 0), (0, -1), (0, 1)]
@@ -233,8 +217,7 @@ print(voisinages(royaume, 1, 3))
 print(voisinages(royaume, 1, 3, True))
 
 def domino_valide(royaume, domino, posL, posC, dir):
-    """Vérifie si un domino peut être placé à cet endroit du royaume selon les règles du jeu."""
-
+   
     if not espaceLibre(royaume, posL, posC, dir):
         return False
 
@@ -281,7 +264,7 @@ print(domino_valide(royaume, domino2, 0, 0, 'left'))
 print(domino_valide(royaume, domino3, 0, 1, 'right'))
 
 def domino_possible(royaume, cases_libres, domino):
-    """Renvoie True si le domino peut être placé quelque part dans le royaume, False sinon."""
+   
 
     directions = ['left', 'right', 'top', 'bottom']
 
@@ -312,11 +295,7 @@ afficherRoyaume(royaume)
 
 
 def creerRoyaume(taille=7):
-    """La fonction creerRoyaume prend en argument un entier positif taille
-    Cet argument est optionnel et prend la valeur 7 par défaut.
-    Si taille est pair ou négatif, on envoie un message d'erreur.
-    Sinon on crée une matrice de dimension taille x taille remplie de None,
-    sauf la case du milieu qui est remplie avec un 'CH'."""
+   
 
     if taille < 0 or taille % 2 == 0:
         print("Impossible de créer un royaume : 'taille' est pair ou négatif")
@@ -336,9 +315,7 @@ print(creerRoyaume(6))
 
 
 def init_tuple_royaumes(taille=7):
-    """La fonction init_tuple_royaumes prend en argument une taille de royaume.
-    Elle crée deux royaumes différents et renvoie un tuple les contenant tous les deux.
-    L'idée est que ce tuple contienne le royaume de chaque joueur de KingDomino."""
+    
 
     royaume1 = creerRoyaume(taille)
     royaume2 = creerRoyaume(taille)
@@ -350,9 +327,7 @@ print(tup[0])
 print(tup[1])
 
 def afficherCoordonnees(royaume):
-    """La fonction afficheCoordonnees prend en argument un royaume
-    et affiche les coordonnées de chaque point du royaume. Cette fonction ne sera jamais
-    utilisée, elle est là pour vous aider à comprendre comment sont fixées les coordonnées"""
+   
     n = len(royaume)
     for i in range(n):
         for j in range(n):
@@ -363,9 +338,7 @@ def afficherCoordonnees(royaume):
     afficherCoordonnees(royaume)
 
 def init_cases_libres(taille):
-    """La fonction init_cases_libres prend en argument la taille d'un royaume
-    Elle renvoie la liste des cases vides d'un royaume de taille nxn contenant seulement
-    un chateau, autrement dit une liste de n^2 - 1 tuples"""
+   
 
     cases = []
     centre = taille // 2
@@ -378,10 +351,7 @@ print(init_cases_libres(3))
 
 
 def init_tuple_libres(taille):
-    """La fonction init_tuple_libres prend en argument une taille de royaume.
-    Elle crée deux listes de cases libres indépendantes et les renvoie sous forme de tuple.
-    L'idée est que ce tuple contienne la liste des cases libres pour le royaume de chaque joueur"""
-
+   
     libres1 = init_cases_libres(taille)
     libres2 = init_cases_libres(taille)
     return (libres1, libres2)
@@ -393,8 +363,7 @@ print(len(tup[1]))
 
 
 def afficherRoyaume(royaume, joueur="A", vide="  "):
-    """Affiche un royaume avec une mise en forme élégante, incluant le nom du joueur,
-    les coordonnées de lignes/colonnes, et les valeurs des cases (ou vide)."""
+   
 
     n = len(royaume)
 
@@ -450,7 +419,7 @@ print("Nombre de dominos chargés :", len(l))
 print("Premier domino :", l[0])
 
 def extraire_premier_bloc(liste_dominos):
-    """Renvoie une nouvelle liste contenant les 4 premiers dominos triés selon leur identifiant."""
+    
 
     bloc = liste_dominos[:4]
 
@@ -474,7 +443,7 @@ print(first)
 print(len(liste_test))
 
 def piocher_bloc(liste_dominos):
-    """Extrait et trie les 4 premiers dominos, puis les retire de la liste d’origine."""
+   
 
     bloc = liste_dominos[:4]
     del liste_dominos[:4]
@@ -498,7 +467,7 @@ print("Bloc trié :", resultat)
 print("Liste restante :", liste_test)
 
 def remplir_choix(liste_dominos, dico_choix):
-    """Remplit ou vide le dictionnaire de choix selon le contenu de la liste de dominos."""
+    
 
     if liste_dominos == []:
 
@@ -522,9 +491,7 @@ remplir_choix([], dico_choix)
 print(len(dico_choix))
 
 def afficher_choix_ou_depot(dico):
-    """La fonction afficher_choix_ou_depot prend en argument un dictionnaire (qui sera
-    soit un dictionnaire de dépot ou un dictionnaire de choix). Elle ne renvoie rien.
-    Elle affiche le dictionnaire de manière élégante."""
+    
     for i in range(1,5):
         print(i, "- Domino", dico[i][0], "Joueur", dico[i][1])
 
@@ -533,15 +500,7 @@ def afficher_choix_ou_depot(dico):
 import random
 
 def init_tuple_joueurs(perso=False):
-    """
-    Initialise les noms des deux joueurs.
-
-    Si perso est False (par défaut), les joueurs s'appellent "A" et "B".
-    Si perso est True, on demande à l'utilisateur de saisir les noms des deux joueurs.
-
-    Returns:
-        tuple: (nom_A, nom_B)
-    """
+    
     nom_A = "A"
     nom_B = "B"
 
@@ -553,16 +512,7 @@ def init_tuple_joueurs(perso=False):
     return nom_A, nom_B
 
 def init_configurations(tuple_joueurs):
-    """
-    Demande à chaque joueur de choisir son mode de jeu (manuel ou random),
-    puis retourne un dictionnaire associant chaque joueur à son mode.
-
-    Args:
-        tuple_joueurs (tuple): Noms des deux joueurs
-
-    Returns:
-        dict: Configuration des joueurs {joueur: mode}
-    """
+    
     joueur_A, joueur_B = tuple_joueurs
     config = {}
 
@@ -584,12 +534,7 @@ def init_configurations(tuple_joueurs):
 print(init_configurations(("Alex", "Bob")))
 
 def pose_domino_manuel(royaume, cases_libres, domino, joueur="A"):
-    """
-    Permet à un joueur de poser un domino manuellement sur son royaume.
-
-    Tant que le placement proposé n’est pas valide, on redemande.
-    La fonction suppose que le domino peut être placé quelque part.
-    """
+   
 
     print(f"\n>>> Royaume actuel de {joueur} :")
     afficherRoyaume(royaume, joueur)
@@ -628,9 +573,7 @@ import random
 
 
 def pose_domino_random(royaume, cases_libres, domino, joueur="A", TENTATIVES=10000):
-    """
-    Pose un domino automatiquement dans le royaume si possible, en tentant jusqu'à TENTATIVES fois.
-    """
+    
 
     directions = ['left', 'right', 'top', 'bottom']
 
@@ -641,9 +584,9 @@ def pose_domino_random(royaume, cases_libres, domino, joueur="A", TENTATIVES=100
         if domino_valide(royaume, domino, posL, posC, dir):
             ajoutDomino(royaume, cases_libres, domino, posL, posC, dir)
             print(f"{joueur} a placé le domino {domino} automatiquement en ({posL}, {posC}) vers {dir}.")
-            return  # Fin de la fonction une fois le domino posé
+            return  
 
-    # Si aucune position valide trouvée après les tentatives
+    
     print(f"❌ Échec : {joueur} n’a pas pu poser le domino {domino} après {TENTATIVES} tentatives.")
 
 royaume = creerRoyaume(5)
@@ -681,20 +624,12 @@ def pose_domino(royaume, cases_libres, domino, dico_configurations, joueur):
 config = {'Alice': 'manuel', 'Bob': 'random'}
 pose_domino(royaume, cases_libres, domino1, config, "Bob")
 
-"""
-Extension : Statistiques de fin de partie
-Cela ajoute une fonction pour afficher des statistiques à la fin de la partie KingDomino.
 
-- Le score total
-- Le nombre de zones distinctes
-- Le score total en fonction du terrain
-- La plus grande zone
-"""
 from F_score import score_zone
 
 
 def statistiques_royaume(royaume):
-    """Affiche des statistiques avancées sur le royaume fourni."""
+    
     score_total = 0
     cases_visitees = []
     terrains_scores = {}
